@@ -1,0 +1,49 @@
+*  {
+    margin: 0;
+    padding: 0;
+}
+
+body  {
+    font-family: sans-serif;
+    width: 50%;
+    text-align: center;
+    margin: 100px auto;
+}
+
+#intro  {
+	font-size: 0.6em;
+	line-height: 1.6em;
+	color: red;
+	margin: 10px 0;
+	text-align: center;
+}
+
+h1  {
+    margin-bottom: 20px;
+}
+
+#direction  {
+	color: red;
+}
+
+ input  {
+	width : 50px;
+	text-align: right;
+} 
+.btn  {
+	width: 100px;
+	text-align: center;
+}
+label, p  {
+	line-height: 2.5;
+}
+
+#out-degree  {
+	font-size: 2em;
+	font-weight: 700;
+	//color: red;		
+}
+
+#out-degree : after  {
+	content: '&deg;'
+}

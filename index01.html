@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Градусник</title>
+  <link href="style01.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+   <p id="intro">Выберите направление<br>конвертации</p>
+  <h1>C <span id="direction" onclick="dirXchange()"></span> F</h1>
+  <label for="input-cels">Введите градусы <span id="in-name"></span><br> </label>
+  <input type="text" id="in-degree" value="">
+  <input type="button" class="btn" value="Вычислить" onclick="calc()">
+  <input type="button" class="btn" value="Очистить" onclick="cleaning()">
+  </div>
+  <p>Получите градусы <span id="out-name"></span><br><span id="out-degree"></span></p>
+    
+  <script type="text/javascript">
+    
+    var d = document;
+    var lArrow = '<--'; // Стрелка влево
+    var rArrow = '-->'; // Стрелка вправо
+	var inName = ''; // Градусы вводимые
+	var C = 'Цельсия';
+	var F = 'Фаренгейта';
+	var degrC;
+	var degrF;
+	var outName = ''; // Градусы выводимые
+    var cArrow = d.getElementById('direction').textContent; // Текущее направление
+    var nArrow = rArrow; // Требуемое направление
+      console.log ('Текущее направление ' + cArrow);
+	var toRight = function()  { // Цельсий -> Фаренгейт
+		nArrow = rArrow;
+		d.getElementById('direction').innerHTML = rArrow;
+		d.getElementById('in-name').innerHTML = C;
+		d.getElementById('out-name').innerHTML = F;
+		console.log ('Переводим стрелки вправо');				
+	};
+	var toLeft = function()  { // Фаренгейт -> Цельсий
+		nArrow = lArrow;
+		d.getElementById('direction').innerHTML = lArrow;
+		d.getElementById('in-name').innerHTML = F;
+		d.getElementById('out-name').innerHTML = C;
+		console.log ('Переводим стрелки влево');
+	};
+	
+    var dirXchange = function(x)  { //Функция смены текущего направления
+      console.log ('Исходное направление '+ cArrow);
+      nArrow == rArrow ? toLeft() : toRight();
+      cArrow = nArrow;
+      console.log ('Смена направления на '+ cArrow);
+    };
+
+	var cleaning = function ()  {
+		d.getElementById ('in-degree').value = '';
+		d.getElementById('out-degree').innerHTML = '';
+	};
+    
+	var calc = function()  {
+	  let x = cArrow;
+	  let y =+ d.getElementById ('in-degree').value
+	  switch (x)	{
+		case rArrow	:
+          console.log ('Градусов Цельсия ' + y);
+		  let a = (9 / 5) * y + 32;
+		  degrF = parseFloat((a.toFixed(2)));
+		  console.log ('Градусов Фаренгейта ' + degrF);
+		  d.getElementById('out-degree').innerHTML = degrF;
+		  break;
+		case lArrow :	
+		  let b = (y - 32)/1.8;
+		  degrC = parseFloat((b.toFixed(2)));
+		  console.log ('Градусов Цельсия ' + degrC);0
+		  d.getElementById('out-degree').innerHTML = degrC;
+		  break;			  
+	  }
+	};
+	
+	
+  // ==========
+  // Задание исходных условий  
+	//d.getElementById('direction').textContent = cArrow; 
+	d.getElementById('direction').innerHTML = rArrow;
+	d.getElementById('in-name').innerHTML = C;
+	d.getElementById('out-name').innerHTML = F;
+	cArrow = rArrow;
+	    
+  </script>
+
+ <!--<script type="text/javascript">
+    var degrCel; //Температура по Цельсию
+    var degrFar; //Температура по Фаренгейту 
+    var degrCel = prompt ('Сколько в градусах Цельсия?');
+    degrFar = (9 / 5) * degrCel + 32;
+    alert ('Получите по Фаренгейту '+ degrFar + ' град.');
+  </script>-->
+  
+</body>
+</html>
